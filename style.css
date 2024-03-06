@@ -53,7 +53,6 @@ body {
 	border-radius: 50px;
 	box-shadow: 0 0 30px var(--clr), inset 0 0 20px var(--clr);
 	box-shadow: 50px;
-	animation: anim 1s
 }
 
 .neon:hover::after {
@@ -65,9 +64,27 @@ body {
 	top: 225px;
 	transform: perspective(5em) rotateX(45deg) scale(1.1, 0.2) scaleX(1.3);
 	filter: blur(5em);
-	animation: anim 1s;
-
 }
+
+.first:hover::after,
+.second:hover::after,
+.first:hover::before,
+.second:hover::before {
+	animation: anim 1s
+}
+
+.third:hover::after,
+.third:hover::before,
+.third:hover {
+	animation: anim3 1s;
+}
+
+.second:hover {
+	--clr: yellow;
+	animation: anim1 1s;
+}
+
+
 
 @keyframes anim {
 	0% {
@@ -124,5 +141,46 @@ body {
 		opacity: 1;
 
 	}
+}
 
+@keyframes anim1 {
+	10% {
+		--clr: blue
+	}
 
+	50% {
+		--clr: red
+	}
+
+	100% {
+		--clr: green
+	}
+}
+
+@keyframes anim3 {
+	0% {
+		transform: rotateZ(0)
+	}
+
+	10% {
+
+		--clr: blue;
+		transform: rotateZ(90deg)
+	}
+
+	50% {
+		--clr: red;
+		transform: rotateZ(180deg)
+	}
+
+	80% {
+		--clr: green;
+		transform: rotateZ(50deg)
+	}
+
+	100% {
+		transform: rotateZ(0)
+	}
+}
+
+}
